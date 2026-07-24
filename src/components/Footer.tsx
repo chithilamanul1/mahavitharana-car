@@ -9,8 +9,13 @@ export default function Footer() {
                     {/* Brand */}
                     <div>
                         <div className="flex items-center gap-3 mb-6">
-                            <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold text-2xl">
-                                M
+                            <div className="relative w-14 h-14 rounded-full overflow-hidden bg-black flex-shrink-0">
+                                <Image
+                                    src="/logo.png"
+                                    alt="Mahavithana Enterprises Logo"
+                                    fill
+                                    className="object-cover"
+                                />
                             </div>
                             <div>
                                 <div className="text-black font-bold tracking-wide text-lg uppercase">

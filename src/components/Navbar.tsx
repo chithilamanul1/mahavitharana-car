@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const links = [
@@ -54,8 +55,13 @@ export default function Navbar() {
                     <div className="flex items-center justify-between h-20">
                         {/* Logo */}
                         <Link href="/" className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-black rounded-full flex items-center justify-center text-white font-bold text-xl">
-                                M
+                            <div className="relative w-12 h-12 rounded-full overflow-hidden bg-black flex-shrink-0">
+                                <Image
+                                    src="/logo.png"
+                                    alt="Mahavithana Enterprises Logo"
+                                    fill
+                                    className="object-cover"
+                                />
                             </div>
                             <div className="leading-tight">
                                 <div className="font-bold text-lg tracking-wide text-black">
