@@ -1,198 +1,195 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const features = [
-  {
-    icon: '🏆',
-    title: 'Brand New Vehicles',
-    desc: 'Every car in our inventory is 100% brand new, directly sourced from authorized distributors.',
-  },
-  {
-    icon: '💰',
-    title: 'Competitive Pricing',
-    desc: 'We offer the best market prices with flexible payment options to fit your budget.',
-  },
-  {
-    icon: '🤝',
-    title: 'Trusted Dealer',
-    desc: 'With years of experience in Welisara, we are your most trusted local car dealer.',
-  },
-  {
-    icon: '🔧',
-    title: 'After-Sale Support',
-    desc: 'Our team is always available to assist you even after your purchase.',
-  },
+const brands = [
+  { name: 'Toyota', logo: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Toyota_carlogo.svg' },
+  { name: 'Honda', logo: 'https://upload.wikimedia.org/wikipedia/commons/3/38/Honda.svg' },
+  { name: 'Nissan', logo: 'https://upload.wikimedia.org/wikipedia/commons/8/8c/Nissan_logo.png' },
+  { name: 'Suzuki', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/12/Suzuki_logo_2.svg' },
+  { name: 'Mitsubishi', logo: 'https://upload.wikimedia.org/wikipedia/commons/b/b7/Mitsubishi-logo.png' },
+  { name: 'BMW', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg' },
 ];
 
 export default function HomePage() {
   return (
     <>
       {/* ── Hero ── */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
-        {/* Background */}
-        <Image
-          src="/hero.png"
-          alt="Mahavithana car showroom"
-          fill
-          className="object-cover"
-          priority
-        />
-        {/* Overlay */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.75) 100%)',
-          }}
-        />
-
-        {/* Content */}
-        <div className="relative z-10 text-center px-4 sm:px-8 max-w-4xl mx-auto">
-          <span
-            className="inline-block text-xs tracking-[0.3em] uppercase mb-6 py-1.5 px-5 rounded-full border"
-            style={{ borderColor: 'rgba(201,168,76,0.4)', color: '#c9a84c', background: 'rgba(201,168,76,0.08)' }}
-          >
-            Welisara's Premier Car Dealership
-          </span>
-
-          <h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
-            style={{ fontFamily: 'Playfair Display, serif' }}
-          >
-            Drive Your{' '}
-            <span style={{ color: '#c9a84c' }}>Dream</span>
-            <br />
-            Brand New Car
-          </h1>
-
-          <p className="text-gray-300 text-lg sm:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-            Mahavithana Enterprises brings you the finest brand-new vehicles at unbeatable prices.
-            Located in the heart of Welisara, Sri Lanka.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/vehicles" className="btn-gold text-base">
-              🚗 Browse Our Fleet
-            </Link>
-            <Link href="/contact" className="btn-outline text-base">
-              📞 Contact Us
-            </Link>
-          </div>
-
-          {/* Stats */}
-          <div className="mt-16 grid grid-cols-3 gap-6 max-w-lg mx-auto">
-            {[
-              { num: '100%', label: 'Brand New' },
-              { num: '24/7', label: 'Support' },
-              { num: '★★★★★', label: 'Rated' },
-            ].map((s) => (
-              <div key={s.label} className="text-center">
-                <div className="text-[#c9a84c] font-bold text-xl" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  {s.num}
-                </div>
-                <div className="text-gray-400 text-xs tracking-widest uppercase mt-1">{s.label}</div>
+      <section className="relative bg-[#f0f2f5] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-20 pb-32">
+            {/* Text Content */}
+            <div>
+              <div className="text-sm font-bold text-gray-500 tracking-widest uppercase mb-4">
+                TRUSTED DEALER, RENTAL
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 text-xs tracking-widest uppercase">
-          <span>Scroll</span>
-          <div className="w-px h-8 bg-gradient-to-b from-[#c9a84c] to-transparent animate-pulse" />
-        </div>
-      </section>
-
-      {/* ── Why Choose Us ── */}
-      <section className="py-24 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-14">
-            <h2 className="section-title">Why Choose <span className="gold">Mahavithana?</span></h2>
-            <div className="gold-divider" />
-            <p className="section-subtitle text-gray-400">
-              We&apos;re more than just a dealership — we&apos;re your partner in finding the perfect vehicle.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {features.map((f) => (
-              <div key={f.title} className="glass-card p-6 text-center">
-                <div className="text-4xl mb-4">{f.icon}</div>
-                <h3 className="text-white font-semibold text-lg mb-2" style={{ fontFamily: 'Playfair Display, serif' }}>
-                  {f.title}
-                </h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Location Banner ── */}
-      <section
-        className="py-16 px-4 sm:px-8"
-        style={{ background: 'linear-gradient(135deg, #0f0f0f 0%, #141414 100%)' }}
-      >
-        <div className="max-w-7xl mx-auto rounded-2xl overflow-hidden" style={{ border: '1px solid #2a2a2a' }}>
-          <div className="grid md:grid-cols-2">
-            <div className="p-10 flex flex-col justify-center">
-              <h2 className="section-title mb-3">
-                Visit Our <span className="gold">Showroom</span>
-              </h2>
-              <div className="gold-divider" style={{ margin: '0.5rem 0 1.5rem' }} />
-              <ul className="space-y-4 text-gray-300">
-                <li className="flex items-start gap-3">
-                  <span className="text-[#c9a84c] text-xl mt-0.5">📍</span>
-                  <span>330, Negombo Road, Welisara, Sri Lanka 11300</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-[#c9a84c] text-xl">📞</span>
-                  <div>
-                    <a href="tel:+94779098813" className="hover:text-[#c9a84c] transition-colors block">077 90 98 813</a>
-                    <a href="tel:+94777760437" className="hover:text-[#c9a84c] transition-colors block">07777 60 437</a>
-                  </div>
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="text-[#c9a84c] text-xl">🕐</span>
-                  <span>Mon – Sat: 8:00 AM – 7:00 PM</span>
-                </li>
-              </ul>
-              <div className="mt-8 flex gap-4">
-                <Link href="/contact" className="btn-gold">Get Directions</Link>
-                <a href="https://wa.me/94779098813" target="_blank" rel="noopener noreferrer" className="btn-outline">
-                  WhatsApp
-                </a>
+              <h1 className="text-5xl sm:text-6xl font-bold text-black leading-tight mb-6">
+                Premium Car <br />
+                Collection..
+              </h1>
+              <p className="text-gray-600 text-lg mb-8 max-w-md">
+                Car Is Where Early Adopters And Innovation Seekers Find Lively Imaginative Tech Before It Hits The Mainstream.
+              </p>
+              <div className="flex items-center gap-6">
+                <Link href="/vehicles" className="btn-primary">
+                  Go To Listing
+                </Link>
+                <button className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-md hover:shadow-lg transition-shadow">
+                  <span className="text-black ml-1">▶</span>
+                </button>
               </div>
             </div>
-            <div className="h-72 md:h-auto">
-              <iframe
-                title="Mahavithana Enterprises Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.9!2d79.9!3d7.04!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2f9!2sMahavithana%20Enterprises!5e0!3m2!1sen!2slk!4v1"
-                width="100%"
-                height="100%"
-                style={{ border: 0, minHeight: '280px' }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+
+            {/* Image */}
+            <div className="relative h-[400px] lg:h-[500px]">
+              <Image
+                src="/hero.png"
+                alt="Mahavithana car showroom"
+                fill
+                className="object-contain object-right"
+                priority
               />
+              {/* Floating Badge */}
+              <div className="absolute top-10 right-10 bg-black text-white rounded-full w-20 h-20 flex flex-col items-center justify-center shadow-xl">
+                <span className="text-xl font-bold">40%</span>
+                <span className="text-[10px] uppercase">OFF</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Search Bar (Floating) */}
+        <div className="absolute bottom-0 left-0 right-0 transform translate-y-1/2 z-20 px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="flex">
+              <button className="bg-black text-white px-6 py-3 text-sm font-semibold rounded-t-lg">All Cars</button>
+              <button className="bg-white text-gray-600 px-6 py-3 text-sm font-semibold rounded-t-lg">Used Car</button>
+              <button className="bg-white text-gray-600 px-6 py-3 text-sm font-semibold rounded-t-lg">New Cars</button>
+            </div>
+            <div className="bg-white p-6 rounded-b-lg rounded-tr-lg shadow-xl flex flex-col md:flex-row gap-4 items-center">
+              <select className="input-field flex-1">
+                <option>Make</option>
+                <option>Toyota</option>
+                <option>Honda</option>
+              </select>
+              <select className="input-field flex-1">
+                <option>Models</option>
+                <option>Camry</option>
+                <option>Civic</option>
+              </select>
+              <div className="flex-1 px-4 w-full">
+                <div className="text-xs text-gray-500 mb-2 flex justify-between">
+                  <span>Price</span>
+                  <span>1,000 - 5,000</span>
+                </div>
+                <input type="range" className="w-full accent-black" min="1000" max="5000" />
+              </div>
+              <button className="btn-primary w-full md:w-auto py-3 px-8 flex items-center justify-center gap-2">
+                <span>🔍</span> 2351 Cars
+              </button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="py-24 px-4 text-center">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="section-title mb-4">
-            Ready to Find Your <span className="gold">Perfect Car?</span>
-          </h2>
-          <div className="gold-divider" />
-          <p className="text-gray-400 mb-8">
-            Browse our full inventory of brand-new vehicles. Every car is certified, priced fairly, and ready to drive.
-          </p>
-          <Link href="/vehicles" className="btn-gold text-lg px-10 py-4">
-            View All Vehicles
-          </Link>
+      {/* Spacer for floating search bar */}
+      <div className="h-32"></div>
+
+      {/* ── Browse By Brands ── */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="text-sm font-bold text-gray-500 tracking-widest uppercase mb-2">
+            FIND YOUR CAR BY CAR BRAND
+          </div>
+          <h2 className="text-3xl font-bold text-black mb-12">Browse By Brands</h2>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
+            {brands.map((brand) => (
+              <div key={brand.name} className="bg-white border border-gray-100 rounded-xl p-6 flex flex-col items-center justify-center gap-4 hover:shadow-lg transition-shadow cursor-pointer group">
+                <div className="relative w-16 h-16 grayscale group-hover:grayscale-0 transition-all">
+                  <Image src={brand.logo} alt={brand.name} fill className="object-contain" />
+                </div>
+                <span className="font-semibold text-gray-800">{brand.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Explore All Vehicles ── */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#f8f9fa]">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div>
+              <div className="text-sm font-bold text-gray-500 tracking-widest uppercase mb-2">
+                TRUSTED CAR DEALER SERVICE
+              </div>
+              <h2 className="text-3xl font-bold text-black">Explore All Vehicles</h2>
+            </div>
+            <div className="flex gap-2">
+              <button className="bg-black text-white px-4 py-2 text-sm font-semibold rounded-md">All Status</button>
+              <button className="bg-white text-gray-600 border border-gray-200 px-4 py-2 text-sm font-semibold rounded-md hover:bg-gray-50">New Cars</button>
+              <button className="bg-white text-gray-600 border border-gray-200 px-4 py-2 text-sm font-semibold rounded-md hover:bg-gray-50">Used Cars</button>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Dummy Cards to match design */}
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="bg-white rounded-xl overflow-hidden border border-gray-100 hover:shadow-xl transition-shadow group">
+                <div className="relative h-56 bg-gray-200">
+                  <Image src="/hero.png" alt="Car" fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute top-4 left-4 flex gap-2">
+                    <span className="bg-black text-white text-xs font-bold px-2 py-1 rounded">Featured</span>
+                    <span className="bg-black/50 text-white text-xs font-bold px-2 py-1 rounded flex items-center gap-1">📷 5</span>
+                  </div>
+                  <div className="absolute top-4 right-4">
+                    <span className="bg-black text-white text-xs font-bold px-2 py-1 rounded">2023</span>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="text-xs text-gray-500 mb-1">Mini Cooper 3 Similar</div>
+                  <h3 className="text-lg font-bold text-black mb-2">Chevrolet Suburban 2021 mo</h3>
+                  <div className="text-xl font-bold text-black mb-6">$27.000</div>
+
+                  <div className="grid grid-cols-3 gap-4 border-t border-b border-gray-100 py-4 mb-4">
+                    <div className="flex flex-col items-center text-center">
+                      <span className="text-gray-400 text-sm mb-1">⛽</span>
+                      <span className="text-xs text-gray-500">Fuel type</span>
+                      <span className="text-sm font-semibold text-black">Petrol</span>
+                    </div>
+                    <div className="flex flex-col items-center text-center border-l border-r border-gray-100">
+                      <span className="text-gray-400 text-sm mb-1">⏱</span>
+                      <span className="text-xs text-gray-500">Mileage</span>
+                      <span className="text-sm font-semibold text-black">90k.m</span>
+                    </div>
+                    <div className="flex flex-col items-center text-center">
+                      <span className="text-gray-400 text-sm mb-1">⚙️</span>
+                      <span className="text-xs text-gray-500">Transmission</span>
+                      <span className="text-sm font-semibold text-black">Auto</span>
+                    </div>
+                  </div>
+
+                  <div className="flex justify-between items-center">
+                    <Link href="/vehicles" className="text-sm font-bold text-black hover:underline flex items-center gap-1">
+                      VIEW DETAILS <span>→</span>
+                    </Link>
+                    <div className="flex gap-2">
+                      <button className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-black hover:border-black transition-colors">
+                        ⇄
+                      </button>
+                      <button className="w-8 h-8 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-black hover:border-black transition-colors">
+                        ♡
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link href="/vehicles" className="btn-outline">View All Vehicles</Link>
+          </div>
         </div>
       </section>
     </>

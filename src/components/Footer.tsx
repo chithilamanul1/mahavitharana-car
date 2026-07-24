@@ -3,37 +3,52 @@ import Image from 'next/image';
 
 export default function Footer() {
     return (
-        <footer className="bg-[#050505] border-t border-[#2a2a2a] py-12 mt-auto">
+        <footer className="bg-white border-t border-gray-200 py-16 mt-auto">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                     {/* Brand */}
                     <div>
-                        <div className="flex items-center gap-3 mb-4">
-                            <Image src="/logo.png" alt="Mahavithana Logo" width={48} height={48} className="rounded-full object-cover" />
+                        <div className="flex items-center gap-3 mb-6">
+                            <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center text-white font-bold text-2xl">
+                                M
+                            </div>
                             <div>
-                                <div className="text-[#c9a84c] font-bold tracking-widest text-sm uppercase" style={{ fontFamily: 'Playfair Display, serif' }}>
-                                    Mahavithana
+                                <div className="text-black font-bold tracking-wide text-lg uppercase">
+                                    MAHAVITHANA
                                 </div>
-                                <div className="text-[10px] tracking-[0.2em] text-gray-500 uppercase">Enterprises</div>
+                                <div className="text-[10px] tracking-[0.15em] text-gray-500 uppercase font-semibold">
+                                    Enterprises
+                                </div>
                             </div>
                         </div>
-                        <p className="text-gray-500 text-sm leading-relaxed">
+                        <p className="text-gray-600 text-sm leading-relaxed mb-6">
                             Your trusted brand-new car dealership in Welisara, Sri Lanka. Quality vehicles at competitive prices.
                         </p>
+                        <div className="flex gap-4">
+                            <a href="#" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-black hover:text-white transition-colors">
+                                f
+                            </a>
+                            <a href="#" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-black hover:text-white transition-colors">
+                                t
+                            </a>
+                            <a href="#" className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-black hover:text-white transition-colors">
+                                in
+                            </a>
+                        </div>
                     </div>
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="text-[#c9a84c] font-semibold mb-4 text-sm tracking-widest uppercase">Quick Links</h4>
-                        <ul className="space-y-2">
+                        <h4 className="text-black font-bold mb-6 text-lg">Quick Links</h4>
+                        <ul className="space-y-3">
                             {[
                                 { href: '/', label: 'Home' },
                                 { href: '/vehicles', label: 'Browse Vehicles' },
                                 { href: '/contact', label: 'Contact Us' },
                             ].map((l) => (
                                 <li key={l.href}>
-                                    <Link href={l.href} className="text-gray-400 hover:text-[#c9a84c] text-sm transition-colors">
-                                        {l.label}
+                                    <Link href={l.href} className="text-gray-600 hover:text-black font-medium text-sm transition-colors flex items-center gap-2">
+                                        <span className="text-gray-300">›</span> {l.label}
                                     </Link>
                                 </li>
                             ))}
@@ -42,36 +57,42 @@ export default function Footer() {
 
                     {/* Contact */}
                     <div>
-                        <h4 className="text-[#c9a84c] font-semibold mb-4 text-sm tracking-widest uppercase">Contact</h4>
-                        <ul className="space-y-2 text-sm text-gray-400">
-                            <li className="flex items-start gap-2">
-                                <span className="text-[#c9a84c] mt-0.5">📍</span>
-                                330, Negombo Road, Welisara, Sri Lanka 11300
+                        <h4 className="text-black font-bold mb-6 text-lg">Contact Info</h4>
+                        <ul className="space-y-4 text-sm text-gray-600">
+                            <li className="flex items-start gap-3">
+                                <span className="text-xl">📍</span>
+                                <span className="mt-1">330, Negombo Road, Welisara, Sri Lanka 11300</span>
                             </li>
-                            <li className="flex items-center gap-2">
-                                <span className="text-[#c9a84c]">📞</span>
-                                <a href="tel:+94779098813" className="hover:text-[#c9a84c] transition-colors">077 90 98 813</a>
+                            <li className="flex items-center gap-3">
+                                <span className="text-xl">📞</span>
+                                <a href="tel:+94779098813" className="hover:text-black font-medium transition-colors">077 90 98 813</a>
                             </li>
-                            <li className="flex items-center gap-2">
-                                <span className="text-[#c9a84c]">📞</span>
-                                <a href="tel:+94777760437" className="hover:text-[#c9a84c] transition-colors">07777 60 437</a>
+                            <li className="flex items-center gap-3">
+                                <span className="text-xl">✉️</span>
+                                <a href="mailto:mahavithana@gmail.com" className="hover:text-black font-medium transition-colors">mahavithana@gmail.com</a>
                             </li>
-                            <li className="mt-3">
+                            <li className="mt-6">
                                 <a
                                     href="https://wa.me/94779098813"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white text-xs font-semibold px-4 py-2 rounded-full transition-colors"
+                                    className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white text-sm font-bold px-6 py-3 rounded-lg transition-colors shadow-sm"
                                 >
-                                    💬 WhatsApp Us
+                                    <span className="text-lg">💬</span> WhatsApp Us
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <div className="border-t border-[#1a1a1a] mt-10 pt-6 text-center text-gray-600 text-xs">
-                    © {new Date().getFullYear()} Mahavithana Enterprises. All rights reserved. | Welisara, Sri Lanka
+                <div className="border-t border-gray-200 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm font-medium">
+                    <div>
+                        © {new Date().getFullYear()} Mahavithana Enterprises. All rights reserved.
+                    </div>
+                    <div className="flex gap-6">
+                        <a href="#" className="hover:text-black">Privacy Policy</a>
+                        <a href="#" className="hover:text-black">Terms of Service</a>
+                    </div>
                 </div>
             </div>
         </footer>

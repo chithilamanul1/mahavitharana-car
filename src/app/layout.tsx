@@ -105,13 +105,13 @@ export default function RootLayout({
 
   return (
     <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-[#0a0a0a]">
+      <body className="min-h-full flex flex-col bg-[var(--bg-main)]">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <Navbar />
-        <main className="flex-1 pt-16">{children}</main>
+        <main className="flex-1 pt-[116px]">{children}</main>
         <Footer />
       </body>
     </html>
