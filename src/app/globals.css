@@ -4,17 +4,11 @@
 :root {
   --primary: #000000;
   --primary-hover: #333333;
-  --bg-main: #f8f9fa;
+  --bg-main: #ffffff;
   --bg-card: #ffffff;
   --text-main: #111111;
   --text-muted: #666666;
   --border-color: #e5e7eb;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
