@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 const links = [
@@ -84,16 +83,6 @@ export default function Navbar() {
                             ))}
                         </div>
 
-                        {/* CTA Buttons */}
-                        <div className="hidden md:flex items-center gap-4">
-                            <Link href="/vehicles" className="text-sm font-semibold text-gray-600 hover:text-black">
-                                Register / Login
-                            </Link>
-                            <Link href="/vehicles" className="btn-primary text-sm py-2 px-5 rounded-md">
-                                Listing Yours ⊕
-                            </Link>
-                        </div>
-
                         {/* Mobile Menu Toggle */}
                         <button
                             className="md:hidden flex flex-col gap-1.5 p-2"
@@ -138,14 +127,6 @@ export default function Navbar() {
                                 {l.label}
                             </Link>
                         ))}
-                        <div className="flex flex-col gap-3 mt-2 pt-4 border-t border-gray-100">
-                            <Link href="/vehicles" className="text-sm font-semibold text-center text-gray-600" onClick={() => setOpen(false)}>
-                                Register / Login
-                            </Link>
-                            <Link href="/vehicles" className="btn-primary text-sm text-center" onClick={() => setOpen(false)}>
-                                Listing Yours ⊕
-                            </Link>
-                        </div>
                     </div>
                 </div>
             </nav>

@@ -60,12 +60,7 @@ export default function HomePage() {
         {/* Search Bar (Floating) */}
         <div className="absolute bottom-0 left-0 right-0 transform translate-y-1/2 z-20 px-4">
           <div className="max-w-5xl mx-auto">
-            <div className="flex">
-              <button className="bg-black text-white px-6 py-3 text-sm font-semibold rounded-t-lg">All Cars</button>
-              <button className="bg-white text-gray-600 px-6 py-3 text-sm font-semibold rounded-t-lg">Used Car</button>
-              <button className="bg-white text-gray-600 px-6 py-3 text-sm font-semibold rounded-t-lg">New Cars</button>
-            </div>
-            <div className="bg-white p-6 rounded-b-lg rounded-tr-lg shadow-xl flex flex-col md:flex-row gap-4 items-center">
+            <div className="bg-white p-6 rounded-lg shadow-xl flex flex-col md:flex-row gap-4 items-center border border-gray-100">
               <select className="input-field flex-1">
                 <option>Make</option>
                 <option>Toyota</option>
@@ -84,7 +79,7 @@ export default function HomePage() {
                 <input type="range" className="w-full accent-black" min="1000" max="5000" />
               </div>
               <button className="btn-primary w-full md:w-auto py-3 px-8 flex items-center justify-center gap-2">
-                <span>🔍</span> 2351 Cars
+                <span>🔍</span> Search
               </button>
             </div>
           </div>
@@ -124,11 +119,6 @@ export default function HomePage() {
                 TRUSTED CAR DEALER SERVICE
               </div>
               <h2 className="text-3xl font-bold text-black">Explore All Vehicles</h2>
-            </div>
-            <div className="flex gap-2">
-              <button className="bg-black text-white px-4 py-2 text-sm font-semibold rounded-md">All Status</button>
-              <button className="bg-white text-gray-600 border border-gray-200 px-4 py-2 text-sm font-semibold rounded-md hover:bg-gray-50">New Cars</button>
-              <button className="bg-white text-gray-600 border border-gray-200 px-4 py-2 text-sm font-semibold rounded-md hover:bg-gray-50">Used Cars</button>
             </div>
           </div>
 
