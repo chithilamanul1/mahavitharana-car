@@ -48,11 +48,6 @@ export default function HomePage() {
                 className="object-contain object-right"
                 priority
               />
-              {/* Floating Badge */}
-              <div className="absolute top-10 right-10 bg-black text-white rounded-full w-20 h-20 flex flex-col items-center justify-center shadow-xl">
-                <span className="text-xl font-bold">40%</span>
-                <span className="text-[10px] uppercase">OFF</span>
-              </div>
             </div>
           </div>
         </div>
