@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+const inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-playfair' });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://mahavithanacars.lk'), // Replace with actual domain when available
@@ -104,7 +108,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className="h-full antialiased">
+    <html lang="en" className={`h-full antialiased ${inter.variable} ${playfair.variable}`}>
       <body className="min-h-full flex flex-col bg-[var(--bg-main)]">
         <script
           type="application/ld+json"
