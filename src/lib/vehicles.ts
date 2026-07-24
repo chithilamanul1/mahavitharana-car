@@ -4,7 +4,6 @@ export interface Vehicle {
     make: string;
     model: string;
     year: number;
-    price: number;
     mileage: string;
     fuel: string;
     transmission: string;
@@ -35,14 +34,6 @@ export function saveVehicle(v: Vehicle): void {
 export function deleteVehicle(id: string): void {
     const all = getVehicles().filter((v) => v.id !== id);
     localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
-}
-
-export function formatPrice(price: number): string {
-    return new Intl.NumberFormat('si-LK', {
-        style: 'currency',
-        currency: 'LKR',
-        maximumFractionDigits: 0,
-    }).format(price);
 }
 
 export const ADMIN_PASSWORD = 'mahavithana2025';

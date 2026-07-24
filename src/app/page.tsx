@@ -71,12 +71,8 @@ export default function HomePage() {
                 <option>Camry</option>
                 <option>Civic</option>
               </select>
-              <div className="flex-1 px-4 w-full">
-                <div className="text-xs text-gray-500 mb-2 flex justify-between">
-                  <span>Price</span>
-                  <span>1,000 - 5,000</span>
-                </div>
-                <input type="range" className="w-full accent-black" min="1000" max="5000" />
+              <div className="flex-1 px-4 w-full flex items-center justify-center">
+                <span className="text-sm font-semibold text-gray-500">All vehicles are brand new</span>
               </div>
               <button className="btn-primary w-full md:w-auto py-3 px-8 flex items-center justify-center gap-2">
                 <span>🔍</span> Search
@@ -139,7 +135,7 @@ export default function HomePage() {
                 <div className="p-6">
                   <div className="text-xs text-gray-500 mb-1">Mini Cooper 3 Similar</div>
                   <h3 className="text-lg font-bold text-black mb-2">Chevrolet Suburban 2021 mo</h3>
-                  <div className="text-xl font-bold text-black mb-6">$27.000</div>
+                  <div className="text-sm font-bold text-gray-500 mb-6">Inquire for Price</div>
 
                   <div className="grid grid-cols-3 gap-4 border-t border-b border-gray-100 py-4 mb-4">
                     <div className="flex flex-col items-center text-center">

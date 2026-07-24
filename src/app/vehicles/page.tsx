@@ -7,7 +7,6 @@ import {
     getVehicles,
     saveVehicle,
     deleteVehicle,
-    formatPrice,
     ADMIN_PASSWORD,
 } from '@/lib/vehicles';
 
@@ -20,7 +19,6 @@ const emptyForm = (): Omit<Vehicle, 'id' | 'createdAt' | 'images'> => ({
     make: '',
     model: '',
     year: new Date().getFullYear(),
-    price: 0,
     mileage: '0 km (Brand New)',
     fuel: 'Petrol',
     transmission: 'Automatic',
@@ -31,7 +29,6 @@ const emptyForm = (): Omit<Vehicle, 'id' | 'createdAt' | 'images'> => ({
 export default function VehiclesPage() {
     const [vehicles, setVehicles] = useState<Vehicle[]>([]);
     const [search, setSearch] = useState('');
-    const [maxPrice, setMaxPrice] = useState(100_000_000);
     const [selected, setSelected] = useState<Vehicle | null>(null);
     const [imgIdx, setImgIdx] = useState(0);
 
@@ -62,8 +59,7 @@ export default function VehiclesPage() {
             v.make.toLowerCase().includes(q) ||
             v.model.toLowerCase().includes(q) ||
             String(v.year).includes(q);
-        const matchPrice = v.price <= maxPrice;
-        return matchSearch && matchPrice;
+        return matchSearch;
     });
 
     /* --- Admin login --- */
@@ -95,7 +91,7 @@ export default function VehiclesPage() {
 
     /* --- Add vehicle --- */
     function handleAdd() {
-        if (!form.name || !form.make || !form.model || !form.price) return;
+        if (!form.name || !form.make || !form.model) return;
         const v: Vehicle = {
             ...form,
             id: Date.now().toString(),
@@ -169,21 +165,6 @@ export default function VehiclesPage() {
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
-                    <div className="flex items-center gap-3 min-w-[200px] px-4">
-                        <label className="text-gray-600 text-sm whitespace-nowrap font-semibold">Max Price:</label>
-                        <input
-                            type="range"
-                            min={500000}
-                            max={100_000_000}
-                            step={500000}
-                            value={maxPrice}
-                            onChange={(e) => setMaxPrice(Number(e.target.value))}
-                            className="flex-1 accent-black"
-                        />
-                        <span className="text-black font-bold text-sm whitespace-nowrap">
-                            {formatPrice(maxPrice)}
-                        </span>
-                    </div>
                 </div>
             </div>
 
@@ -237,7 +218,7 @@ export default function VehiclesPage() {
                                 <div className="p-6">
                                     <div className="text-xs text-gray-500 mb-1 font-semibold">{v.make} {v.model}</div>
                                     <h3 className="text-lg font-bold text-black mb-2 line-clamp-1">{v.name}</h3>
-                                    <div className="text-xl font-bold text-black mb-6">{formatPrice(v.price)}</div>
+                                    <div className="text-sm font-bold text-gray-500 mb-6">Inquire for Price</div>
 
                                     <div className="grid grid-cols-3 gap-4 border-t border-b border-gray-100 py-4 mb-4">
                                         <div className="flex flex-col items-center text-center">
@@ -359,8 +340,8 @@ export default function VehiclesPage() {
                                         {selected.name}
                                     </h2>
                                 </div>
-                                <div className="text-3xl font-bold text-black">
-                                    {formatPrice(selected.price)}
+                                <div className="text-lg font-bold text-gray-500">
+                                    Inquire for Price
                                 </div>
                             </div>
 
@@ -391,7 +372,7 @@ export default function VehiclesPage() {
 
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <a
-                                    href={`https://wa.me/94779098813?text=Hi, I'm interested in the ${selected.name} (${selected.year}) listed at ${formatPrice(selected.price)}.`}
+                                    href={`https://wa.me/94779098813?text=Hi, I'm interested in the ${selected.name} (${selected.year}). Please let me know the price.`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="btn-primary flex-1 text-center text-sm py-4 flex items-center justify-center gap-2"
@@ -487,16 +468,6 @@ export default function VehiclesPage() {
                                         min={2000}
                                         max={2030}
                                         onChange={(e) => setForm({ ...form, year: Number(e.target.value) })}
-                                    />
-                                </div>
-                                <div>
-                                    <label className="text-gray-600 text-xs font-bold uppercase tracking-widest mb-2 block">Price (LKR) *</label>
-                                    <input
-                                        type="number"
-                                        className="input-field"
-                                        placeholder="e.g. 6500000"
-                                        value={form.price || ''}
-                                        onChange={(e) => setForm({ ...form, price: Number(e.target.value) })}
                                     />
                                 </div>
                                 <div>
